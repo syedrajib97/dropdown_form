@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+  
+ // $('p').hide();
+  $(document).ready(function(){
+  
+//	$('button').click(function(){
+//		alert('test');
+//	});
+	
+	$('.test p').css({'color':'red'});
+	
+	
+  });
+  
+  
+  function test(){
+		var name=$('#name').val();
+		var email=$('#email').val();
+		var pwd=$('#pwd').val();
+		
+		
+		
+		if(name==''){
+			$('#name_error').html('Please fill name field');
+			
+			error=true;
+			
+			
+		}else{
+			$('#name_error').html('');
+			
+		}
+		
+		if(email==''){
+			$('#email_error').html('Please fill email field');
+			
+			error=true;
+			
+			
+		}else{
+			$('#name_error').html('');
+			
+		}
+		
+		
+		if(name==""){
+			$('#name').focus();
+		}else if(email==""){
+			$('#email').focus();
+		}
+		
+		
+		
+		
+		
+		
+	
+  }
+  
+  function getDistrict(){
+	
+	 var division=$('#division').val();
+	 
+	 
+	 $('#district').html('');
+	 var str='';
+	 if(division=="Dhaka"){
+		
+		str+='<option value="Dhaka">Dhaka</option>';
+		str+='<option value="Gajipur">Gajipur</option>';
+		str+='<option value="Manikganj">Manikganj</option>';
+		
+		$('#district').html(str);
+		
+	 }else if(division=="Rajshahi"){
+		
+		str+='<option value="Rajshahi">Rajshahi</option>';
+		str+='<option value="Nator">Nator</option>';
+		
+		$('#district').html(str);
+	 }else if(division=="Chittagong"){
+		
+		str+='<option value="Chittagong">Chittagong</option>';
+		str+='<option value="Rangamati">Rangamati</option>';
+		str+='<option value="Coxs Bazar">Coxs Bazar</option>';
+		$('#district').html(str);
+	 }
+  }
+     
+  </script>
+</head>
+<body>
+
+<div class="container" style="width:300px;">
+	
+	
+  
+  <form action="">
+    <div class="form-group">
+      <label for="name">Division:</label>
+      <select class="form-control" id="division" onchange="getDistrict();">
+		<option value="">Select Division</option>
+		<option value="Dhaka">Dhaka</option>
+		<option value="Rajshahi">Rajshahi</option>
+		<option value="Chittagong">Chittagong</option>
+	  </select>
+	  <span id="division_error" style="color:red"></span>
+    </div>
+	
+	<div class="form-group">
+      <label for="name">District:</label>
+      <select class="form-control" id="district">
+		
+	  </select>
+	  <span id="district_error" style="color:red"></span>
+    </div>
+    <button type="button" class="btn btn-default" onclick="test()">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
